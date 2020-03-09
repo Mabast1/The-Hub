@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SteamHUB</title>
+
+    
+  
+    
+    <link href="https://fonts.googleapis.com/css?family=Bevan|Fredoka+One|Monoton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Code|Grenze|Montserrat|Paytone+One|Ubuntu+Mono&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.9/vue.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<style>
+    .wtva{
+        /* border-radius: 50%; */
+        width: 125px;
+        margin: auto
+         
+    }
+    .myicons{
+        text-align: center;
+        position: relative;
+        left: 37%;
+    }
+</style>
+<body>
+    <div class="row h-100">
+        <div class="col-lg-2 col-md-1 col-2 animated slideInLeft fast dashboard-light-parent" id="dashboard-parent" style="transition:0.4s">
+            <!-- <div id="overlay"> -->
+            <br>
+
+            <div class="d-flex p-2 dboard-menu">
+                <i class="material-icons"  id="extend">menu</i>
+                <!-- <h4 class="text-center hide logo-title"><span style="color: grey">idea</span><span style="color: tomato">lab</span></h4> -->
+            </div>
+            
+            <br>
+
+            <div class="d-flex p-2 nav-item dboard-menu" data-toggle="tab" href="#profile">
+                <img id="user-icon" class="material-icons" src="http://gamble.marketing/wp-content/uploads/2014/09/person-placeholder-1.jpg" alt="">
+                <p class="text-center hide no-margin" id="username"></p>
+            </div>
+
+            <br>
+
+            <div class="d-flex p-2 nav-item dboard-menu active-menu" data-toggle="tab" href="#dashboard-tab">
+                <i class="material-icons">dashboard</i>
+                <p class="text-center hide no-margin">Dashboard</p>
+            </div>
+
+            <div class="d-flex p-2 nav-item dboard-menu" data-toggle="tab" href="#classes">
+                <i class="material-icons">collections</i>
+                <p class="text-center hide no-margin">Collection</p>
+            </div>
+
+            <div class="d-flex p-2 nav-item dboard-menu" data-toggle="tab" href="#live">
+                <i class="material-icons">shopping_basket</i>
+                <p class="text-center hide no-margin">Browse<span class="badge badge-danger dashboard-text">Beta</span></p>
+            </div>
+
+            <!-- <div class="d-flex p-2 nav-item dboard-menu" data-toggle="tab" href="#students">
+                <i class="material-icons">extension</i>
+                <p class="text-center hide no-margin">DIY Classes<span class="badge badge-danger dashboard-text">Beta</span></p>
+            </div> -->
+
+            <div class="d-flex p-2 nav-item dboard-menu" data-toggle="tab" href="#students">
+                <i class="material-icons">group</i>
+                <p class="text-center hide no-margin">My Kids<span class="badge badge-danger dashboard-text">Beta</span></p>
+            </div>
+
+            <div class="d-flex p-2 nav-item dboard-menu" data-toggle="tab" href="#reports">
+                <i class="material-icons">equalizer</i>
+                <p class="text-center hide no-margin">Reports <span class="badge badge-warning dashboard-text">Coming soon</span></p>
+            </div>
+
+            <!-- <div class="d-flex p-2 hide" style="position: absolute;bottom:0;margin-left: 0">
+                <img id="logo" src="assets/gfx/beaker.png" alt="" srcset="">
+            </div> -->
+            <!-- </div> -->
+        </div>
+
+        <div class="col-lg-10 col-md-11 col-10" style="padding-left: 0%;transition: 0.4s" id="main-menu">
+            <div class="tab-content h-100">
+                <div class="tab-pane fade show active scroll" id="dashboard-tab">
+                    <div class="container-fluid">
+                        <br>
+                        <div class="row">
+                            <div class="col-6 col-md-6 col-lg-4 col-xl-4">
+                                <div class="card top-card animated fadeInDown nav-item-special" data-toggle="tab" href="#classes" style="background-color: #ff586b;color:white;height: 85px;margin: 0px">
+                                    <h1 class="text-center stats-title" style="margin:auto" id="active-classes">0</h1>
+                                    <p class="text-center" style="color: whitesmoke">Classes In Collection</p>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-md-6 col-lg-4 col-xl-4">
+                                <div class="card top-card animated fadeInDown nav-item-special" style="background-color: #0cc27e;color:white;height: 85px;margin: 0px" data-toggle="tab" href="#students">
+                                    <h1 class="text-center stats-title" style="margin:auto">3</h1>
+                                    <p class="text-center" style="color: whitesmoke">Kids Account</p>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-md-6 col-lg-4 col-xl-4">
+                                <div class="card top-card animated fadeInDown" style="background-color: #FF5722;color:white;height: 85px;margin: 0px" >
+                                    <h1 class="text-center stats-title" style="margin:auto" id="classes-taught">0</h1>
+                                    <p class="text-center" style="color: whitesmoke">Classes Completed</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div style="padding-top: 30px"></div>
+                        
+                        <div class="row">
+                            <div class="col">
+                                <div style="position: absolute;left:-45px; " class="p-2 text-center"><div style="border: 2px solid #2892d0" class="student-wrap animated jackInTheBox">
+                                    <img class="wrap-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUk7ZJvWSC_vZlL7z1ET7BIAKWRUW3XFKEbq3oJrKhQN1ub3Gn" alt="">
+                                </div>
+                                <br>
+                                <p class="app-title animated jackInTheBox">John Oliver</p></div>
+                            </div>
+                            <div class="col">
+                                <div style="position: absolute;left:-359px" class="p-2 text-center"><div class="student-wrap animated jackInTheBox">
+                                    <img class="wrap-img" src="https://image.flaticon.com/icons/png/512/163/163841.png" alt="">
+                                </div>
+                                <br>
+                                <p class="app-title animated jackInTheBox">Vera Oliver</p></div>
+                            </div>
+                            <div class="col">
+                                <div style="position: relative;left:-782px" class="p-2 text-center"><div class="student-wrap animated jackInTheBox">
+                                    <img class="wrap-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwK8Kd8KC7ijDXiKPG5aBxlIcGh2wwaqHiqqf_WjMhFE7ARmll" alt="">
+                                </div>
+                                <br>
+                                <p class="app-title animated jackInTheBox">Yanni Oliver</p></div>
+                            </div>
+
+                            
+
+                                
+
+                              
+                            <!-- <div class="col">
+                                <div class="p-2 text-center"><div class="student-wrap animated jackInTheBox">
+                                    <img class="wrap-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUk7ZJvWSC_vZlL7z1ET7BIAKWRUW3XFKEbq3oJrKhQN1ub3Gn" alt="">
+                                </div>
+                                <br>
+                                <p class="app-title animated jackInTheBox">Noah Oliver</p></div>
+                            </div>
+                            <div class="col">
+                                <div class="p-2 text-center"><div class="student-wrap animated jackInTheBox">
+                                    <img class="wrap-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUk7ZJvWSC_vZlL7z1ET7BIAKWRUW3XFKEbq3oJrKhQN1ub3Gn" alt="">
+                                </div>
+                                <br>
+                                <p class="app-title animated jackInTheBox">Annie Oliver</p></div>
+                            </div> -->
+                        </div>
+
+                        <br>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card custom-card animated fadeIn second-row" style="height: 360px">
+                                    <div class="card-body">
+                                        <br><br>
+                                        <canvas id="myChart" width="300" height="100%"></canvas>
+                                        <br>
+                                        <!-- TODO: -->
+                                        <!-- <p id="switchname" class="text-center">John Olive</p> -->
+                                        <i id="back-btn" class="material-icons carousel-control-prev clickme"  href="#mycarousel" data-slide="prev">keyboard_arrow_left</i>
+                                        <i id="next-btn" class="material-icons carousel-control-next clickme"  href="#mycarousel" data-slide="next">keyboard_arrow_right</i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="card custom-card animated fadeIn second-row" style="height: 360px">
+                                    <div class="card-body">
+                                        <br><br>
+                                        <canvas id="myChart2" width="400" height="100%"></canvas>
+                                        <br>
+                                        <!-- TODO: -->
+                                        <!-- <p id="switchname" class="text-center">John Olive</p> -->
+                                        <!-- <i id="back-btn" class="material-icons carousel-control-prev"  href="#mycarousel" data-slide="prev">keyboard_arrow_left</i>
+                                        <i id="next-btn" class="material-icons carousel-control-next"  href="#mycarousel" data-slide="next">keyboard_arrow_right</i> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card custom-card animated fadeIn second-row" style="height: 400px">
+                                    <div class="card-body">
+                                        <br>
+                                        <h5 class="text-center">Badges Earned Highlight</h5>
+                                        <br><br>
+                                        <div class="row">
+                                            <div class="col">
+                                                <img class="wtva" src="assets/badges/verneehines-1-ROBOTICS-6.png" alt="" srcset="">
+                                                <br>
+                                                <h5 style="width: 125px" class="text-center">Jan</h5>
+                                                <i class="material-icons myicons">info</i>
+                                            </div>
+                                            <div class="col">
+                                                <img class="wtva" src="assets/badges/verneehines-10-3D PRINTING-3.png" alt="" srcset="">
+                                                <br>
+                                                <h5 style="width: 125px" class="text-center">Feb</h5>
+                                                <i class="material-icons myicons">info</i>
+                                            </div>
+                                            <div class="col">
+                                                <img class="wtva" src="assets/badges/verneehines-1-ROBOTICS-7.png" alt="" srcset="">
+                                                <br>
+                                                <h5 style="width: 125px" class="text-center">Mar</h5>
+                                                <i class="material-icons myicons">info</i>
+                                            </div>
+                                            <div class="col">
+                                                <img class="wtva" src="assets/badges/verneehines-2-ENGINEERING-1.png" alt="" srcset="">
+                                                <br>
+                                                <h5 style="width: 125px" class="text-center">Apr</h5>
+                                                <i class="material-icons myicons">info</i>
+                                            </div>
+                                            <div class="col">
+                                                <img class="wtva" src="assets/badges/verneehines-2-ENGINEERING-2.png" alt="" srcset="">
+                                                <br>
+                                                <h5 style="width: 125px" class="text-center">May</h5>
+                                                <i class="material-icons myicons">info</i>
+                                            </div>
+                                            <div class="col">
+                                                <img class="wtva" src="assets/badges/verneehines-2-ENGINEERING-3.png" alt="" srcset="">
+                                                <br>
+                                                <h5 style="width: 125px" class="text-center">Jun</h5>
+                                                <i class="material-icons myicons">info</i>
+                                            </div>
+                                            <div class="col">
+                                                <img class="wtva" src="assets/badges/verneehines-3-CODING-3.png" alt="" srcset="">
+                                                <br>
+                                                <h5 style="width: 125px" class="text-center">Jul</h5>
+                                                <i class="material-icons myicons">info</i>
+                                            </div>
+                                            <div class="col">
+                                                <img class="wtva" src="assets/badges/verneehines-3-CODING-4.png" alt="" srcset="">
+                                                <br>
+                                                <h5 style="width: 125px" class="text-center">Aug</h5>
+                                                <i class="material-icons myicons">info</i>
+                                            </div>
+                                            <div class="col">
+                                                <img class="wtva" src="assets/badges/verneehines-3-CODING-5.png" alt="" srcset="">
+                                                <br>
+                                                <h5 style="width: 125px" class="text-center">Sep</h5>
+                                                <i class="material-icons myicons">info</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        
+                        <div style="padding-top: 25px"></div>
+                        
+                    </div>
+                </div>
+                <div class="tab-pane fade h-100" id="live-cl">
+                    <iframe src="https://irasuna.github.io/live-class/parent-course.html" frameborder="0" width="100%" height="100%" allow="camera;microphone"></iframe>
+                </div>
+                <div class="tab-pane fade h-100" id="classes">
+                    <br>
+                    <div class="d-flex justify-content-start filter-contain">
+                        <!-- <button id="test" class="btn btn-primary">Test</button> -->
+                        <div class="p-2 custom-filter-container text-center" style="margin-top: auto;margin-bottom:auto">Filter</div>
+                        <div class="p-2 custom-filter-container filters">
+                            <select class="custom-select" id="type">
+                                <option value="All" selected>All</option>
+                                <option value="Afterschool">After School</option>
+                                <option value="Camps">Camps</option>
+                                <option value="STEM Academy">STEM Academy</option>
+                            </select>
+                        </div>
+                        <div class="p-2 custom-filter-container filters">
+                            <select class="custom-select" id="level">
+                                <option value="All" selected>All</option>
+                                <option class="d-levels" value="Sparks">Sparks</option>
+                                <option class="d-levels" value="Inventors">Inventors</option>
+                                <option class="d-levels" value="Innovators">Innovators</option>
+                            </select>
+                        </div>
+                        <div class="p-2 custom-filter-container filters">
+                            <select class="custom-select" id="subject">
+                                <option value="All" selected>All</option>
+                                <option value="3D Printing">3D Printing</option>
+                                <option value="Coding">Coding & Programming</option>
+                                <option value="Culinary">Culinary Art</option>
+                                <option value="Engineering">Design Based Engineering</option>
+                                <option value="Drone">Drone Engineering</option>
+                                <option value="Entrepreneurship">Entrepreneurship</option>
+                                <option value="Science">Investigative Science Lab</option>
+                                <option value="Maker Studio">Maker Studio</option>
+                                <option value="Mental Math">Mental Math</option>
+                                <option value="Minecraft">Minecraft</option>
+                                <option value="Movie Studio">Movie Studio</option>
+                                <option value="Robotics">Robotics</option>
+                                <option value="Visual Art">Visual Art Studio</option>
+                            </select>
+                        </div>
+                        
+                        <div id="class-status-select" class="custom-filter-container"></div>
+                        <div id="active-class" class="p-2 class-status text-center custom-filter-container test">All</div>
+                        <div class="p-2 class-status text-center custom-filter-container test">Onsite</div>
+                        <div class="p-2 class-status text-center custom-filter-container test">DIY</div>
+                        <div class="p-2 class-status text-center custom-filter-container test">Live</div>
+                        <div class="p-2 class-status text-center custom-filter-container">
+                            <button class="btn btn-primary w-100 d-flex" data-toggle="modal" href="#modal-redeem">
+                                <i class="material-icons" id="shopcart" style="margin-right: 15px">card_giftcard</i>
+                                <p class="no-margin" style="margin-right: 10px">Redeem</p>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="row animated slideInUp faster custom-class-container">
+                        <div class="container-fluid scroll">
+                            <br>
+                            <div class="w-100">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><b>Type : </b><span style="text-decoration: underline" id="span-type">All</span></li>
+                                    <li class="breadcrumb-item"><b>Level : </b><span style="text-decoration: underline" id="span-level">All</span></li>
+                                    <li class="breadcrumb-item"><b>Subject : </b><span style="text-decoration: underline" id="span-subject">All</span></li>
+                                </ol>
+                            </div>
+                            
+                            <br>
+                            <div class="row" id="append-cogs">   
+                                <!-- <div class="col-6 col-md-4 col-lg-4 col-xl-3 text-center" v-for="post in postList"> -->
+                                <div class="col text-center" v-for="post in postList">
+                                    <div class="custom-card class-card animated jackInTheBox" v-bind:cogname="post.name" data-toggle="modal" href="#modal-cog">
+                                        <div class="wrap">
+                                            <img class="wrap-img" v-bind:src="post.cover" alt="">
+                                        </div>
+                                        <h6 style="margin-top: 11%" class="app-title animated jackInTheBox">{{post.name}}</h6>
+                                    <!-- <i class="material-icons animated jackInTheBox" title="Text">looks_one</i> -->
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="tab-pane fade h-100" id="students">
+                    <br>
+                    <div class="d-flex filter-contain justify-content-start">
+                        <div class="p-2 btn-custom" data-toggle="modal" href="#modal-create-group">
+                            <div class="custom-container h-100 text-center bg-primary text-white">
+                                Add Kid
+                                <i class="material-icons" style="position: relative;top: 6px;">add</i>
+                            </div>
+                        </div>
+
+                        <div class="p-2 btn-custom" data-toggle="modal" href="#modal-delete-group">
+                            <div class="custom-container h-100 text-center bg-danger text-white">
+                                Delete Kid
+                                <i class="material-icons" style="position: relative;top: 6px;">remove</i>
+                            </div>   
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="row animated slideInUp faster custom-class-container">
+                        <div class="container-fluid">
+                            <br>
+                            <div class="w-100">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><b>Session Name : </b><span id="span-name">All</span></li>
+                                    <li class="breadcrumb-item"><b>Session Total : </b><span id="span-total">All</span></li>
+                                    <li class="breadcrumb-item"><b>Overall Total : </b><span id="span-overall-total">All</span></li>
+                                </ol>
+                            </div>
+                            <div class="row-flex d-flex flex-wrap justify-content-start">
+                                <div style="position: absolute;left:-45px" class="p-2 text-center">
+                                    <div class="student-wrap animated jackInTheBox">
+                                        <img class="wrap-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUk7ZJvWSC_vZlL7z1ET7BIAKWRUW3XFKEbq3oJrKhQN1ub3Gn" alt="">
+                                    </div>
+                                    <br>
+                                    <p class="app-title animated jackInTheBox">John Oliver</p>
+                                </div>
+
+                                <div style="position: absolute;left:-359px" class="p-2 text-center"><div class="student-wrap animated jackInTheBox">
+                                    <img class="wrap-img" src="https://image.flaticon.com/icons/png/512/163/163841.png" alt="">
+                                </div>
+                                <br>
+                                <p class="app-title animated jackInTheBox">Vera Oliver</p></div>
+
+                                <div style="position: relative;left:-782px" class="p-2 text-center">
+                                    <div class="overlay">
+                                        <div class="student-wrap animated jackInTheBox">
+                                            <img class="wrap-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwK8Kd8KC7ijDXiKPG5aBxlIcGh2wwaqHiqqf_WjMhFE7ARmll" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <p class="app-title animated jackInTheBox">Yanni Oliver</p></div>
+                            </div> 
+                        </div>
+                           
+                </div>
+
+                <div class="tab-pane fade h-100" id="profile">
+                    <div class="container">
+                        <br>
+                        <div class="card custom-card">
+                            <div class="card-body">
+                                <h5 class="text-center">Settings</h5>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="card custom-card">
+                            <div class="w-100">
+                                <div class="d-flex p-2 text-center">
+                                    <img class="profile-pic-lg" src="assets/gfx/icon310.png" alt="" srcset="">
+                                </div>
+                                <div class="d-flex p-2 text-center"><h5 style="margin: auto" id="username-2"></h5></div>
+                                <br>
+                                <div class="row" style="padding-left: 15px;padding-right: 15px">
+                                    <div data-toggle="modal" data-target="#modal-ppic" class="col-6 text-center custom-col"><h5>Change Picture</h5></div>
+                                    <div class="col-6 text-center custom-col" data-toggle="modal" data-target="#modal-options"><h5>Change Name</h5></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card custom-card" >
+                            <ul class="list-group list-group-flush text-center">
+                                <li class="list-group-item" id="set-branch" data-toggle="modal" data-target="#modal-branch"><h5>Set Branch</h5></li>
+                                <li class="list-group-item" id="reset-passwd"><h5>Reset Password</h5></li>
+                                <li class="list-group-item" id="darkmode">
+                                    <h5>Dark Mode <span class="badge badge-warning badge-custom">Beta</span></h5>
+                                    <div class="container-toggle"></div>
+                                    <div class="container-toggle-btn"><h6 class="padded-text">OFF</h6></div>
+                                </li>
+                                <li class="list-group-item" id="signout"><h5>Sign Out</h5></li>
+                            </ul>
+                        </div>
+                        <br>
+                        <div class="card custom-card danger-card">
+                            <div class="card-body">
+                                <div class="d-flex p-2">
+                                    <i class="material-icons" style="position: absolute;font-size:36px;top: 24px;">warning</i>
+                                    <h5 class="text-center" style="margin: auto">Delete Account</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="tab-pane fade h-100" id="live">
+                    <br>
+                    <div class="d-flex justify-content-start filter-contain">
+                        <!-- <button id="test" class="btn btn-primary">Test</button> -->
+                        <div class="p-2 custom-filter-container text-center" style="margin-top: auto;margin-bottom:auto">Filter</div>
+                        <div class="p-2 custom-filter-container filters">
+                            <select class="custom-select" id="type">
+                                <option value="All" selected>All</option>
+                                <option value="Afterschool">After School</option>
+                                <option value="Camps">Camps</option>
+                                <option value="STEM Academy">STEM Academy</option>
+                            </select>
+                        </div>
+                        <div class="p-2 custom-filter-container filters">
+                            <select class="custom-select" id="level">
+                                <option value="All" selected>All</option>
+                                <option class="d-levels" value="Sparks">Sparks</option>
+                                <option class="d-levels" value="Inventors">Inventors</option>
+                                <option class="d-levels" value="Innovators">Innovators</option>
+                            </select>
+                        </div>
+                        <div class="p-2 custom-filter-container filters">
+                            <select class="custom-select" id="subject">
+                                <option value="All" selected>All</option>
+                                <option value="3D Printing">3D Printing</option>
+                                <option value="Coding">Coding & Programming</option>
+                                <option value="Culinary">Culinary Art</option>
+                                <option value="Engineering">Design Based Engineering</option>
+                                <option value="Drone">Drone Engineering</option>
+                                <option value="Entrepreneurship">Entrepreneurship</option>
+                                <option value="Science">Investigative Science Lab</option>
+                                <option value="Maker Studio">Maker Studio</option>
+                                <option value="Mental Math">Mental Math</option>
+                                <option value="Minecraft">Minecraft</option>
+                                <option value="Movie Studio">Movie Studio</option>
+                                <option value="Robotics">Robotics</option>
+                                <option value="Visual Art">Visual Art Studio</option>
+                            </select>
+                        </div>
+
+                        <div id="class-status-select" class="custom-filter-container"></div>
+                        <div id="active-class" class="p-2 class-status text-center custom-filter-container test">All</div>
+                        <div class="p-2 class-status text-center custom-filter-container test">Onsite</div>
+                        <div class="p-2 class-status text-center custom-filter-container test">DIY</div>
+                        <div class="p-2 class-status text-center custom-filter-container test">Live</div>
+                        <div class="p-2 class-status text-center custom-filter-container test d-flex">
+                            <button class="btn btn-primary w-100 d-flex" data-toggle="tab" href="#checkout">
+                                <i class="material-icons" id="shopcart" style="margin-right: 10px">shopping_cart</i>
+                                <p class="no-margin" style="margin-right: 10px">Cart</p>
+                                <span id="cart-number">0</span>
+                            </button>
+                        </div>
+                    </div>
+                        
+                        
+                        
+                    <div class="row animated slideInUp faster custom-class-container">
+                        <div class="container-fluid scroll">
+                            <br>
+                            <div class="w-100">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><b>Type : </b><span style="text-decoration: underline" id="span-type">All</span></li>
+                                    <li class="breadcrumb-item"><b>Level : </b><span style="text-decoration: underline" id="span-level">All</span></li>
+                                    <li class="breadcrumb-item"><b>Subject : </b><span style="text-decoration: underline" id="span-subject">All</span></li>
+                                </ol>
+                            </div>
+                            <br>
+                            <div class="d-flex animated fadeIn">
+                                <i class="material-icons">group</i>
+                                <p class="dashboard-text" style="width: 100px">On Site</p>
+                                <hr class="w-100" style="margin-left: 15px">
+                            </div>
+                            <br>
+                            <div class="row">   
+                                <div class="col text-center">
+                                    <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                        <div class="wrap">
+                                            <img class="wrap-img" src="https://onextrapixel.com/wp-content/uploads/2017/10/vector-icons.jpg" alt="">
+                                        </div>
+                                        <h6 style="margin-top: 11%" class="app-title animated jackInTheBox">Line Art</h6>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-6"><i class="material-icons">group</i></div>
+                                                    <div class="col-6"><p>On Site</p></div>
+                                                </div>
+                                                    
+                                                    
+                                                <!-- <div class="dflex">
+                                                    <i class="material-icons">group</i>
+                                                    <p class="dashboard-text" style="width: 100px">On Site</p>
+                                                </div> -->
+                                            </li>
+                                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                                            <li class="list-group-item">Vestibulum at eros</li>
+                                        </ul>
+                                        
+                                    </div>
+                                    <br>
+                                </div>
+                                <div class="col text-center">
+                                    <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                        <div class="wrap">
+                                            <img class="wrap-img" src="https://firebasestorage.googleapis.com/v0/b/new-steamhub.appspot.com/o/cog%2F1565889155163-img006.jpg?alt=media&token=7e28baaa-a517-4489-baba-ff5e37a673f9" alt="">
+                                        </div>
+                                        <h6 style="margin-top: 11%" class="app-title animated jackInTheBox">Medical Science</h6>
+                                    </div>
+                                    <br>
+                                </div>
+                                <div class="col text-center">
+                                    <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                        <div class="wrap">
+                                            <img class="wrap-img" src="https://img.freepik.com/free-vector/chemistry-design-concepts_1284-3956.jpg?size=338&ext=jpg" alt="">
+                                        </div>
+                                        <h6 style="margin-top: 11%" class="app-title animated jackInTheBox">Crazy Chem Lab</h6>
+                                    </div>
+                                    <br>
+                                </div>
+                                <div class="col text-center">
+                                    <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                        <div class="wrap">
+                                            <img class="wrap-img" src="https://img.freepik.com/free-vector/web-page_1300-265.jpg?size=338&ext=jpg" alt="">
+                                        </div>
+                                        <h6 style="margin-top: 11%" class="app-title animated jackInTheBox">Code Lab</h6>
+                                    </div>
+                                    <br>
+                                </div>
+                                <!-- <div class="col text-center">
+                                    <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                        <div class="wrap">
+                                            <img class="wrap-img" src="https://firebasestorage.googleapis.com/v0/b/new-steamhub.appspot.com/o/module%2F1565368255834-3DP%20toy%20engineering.jpg?alt=media&token=502eb098-2ed9-4928-9c30-657cd24e2288" alt="">
+                                        </div>
+                                        <h6 style="margin-top: 11%" class="app-title animated jackInTheBox">3D Printing: Toy Engineering</h6>
+                                    </div>
+                                    <br>
+                                </div> -->
+
+                                <div class="col text-center">
+                                    <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                        <div class="row h-100">
+                                            <div class="col-12" style="margin: auto">
+                                                <i class="material-icons">arrow_forward_ios</i>
+                                                <h5 style="margin: auto">Show All</h5>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="d-flex animated fadeIn">
+                                <i class="material-icons">ondemand_video</i>
+                                <p class="dashboard-text" style="width: 170px">Live Classes</p>
+                                <hr class="w-100" style="margin-left: 15px">
+                            </div>
+                            <br>
+                            <div class="row">   
+                                <div class="col text-center">
+                                    <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                        <div class="wrap">
+                                            <img class="wrap-img" src="https://i.pinimg.com/originals/7f/7c/c9/7f7cc981a7b29eab0fc60284e5fd167b.jpg" alt="">
+                                        </div>
+                                        <h6 style="margin-top: 11%" class="app-title animated jackInTheBox">Battle Bots</h6>
+                                    </div>
+                                    <br>
+                                </div>
+                                <div class="col text-center">
+                                    <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                        <div class="wrap">
+                                            <img class="wrap-img" src="https://c7.uihere.com/files/501/593/243/icon-car-chassis-vector-thumb.jpg" alt="">
+                                        </div>
+                                        <h6 style="margin-top: 11%" class="app-title animated jackInTheBox">Chassis Building & Coding</h6>
+                                    </div>
+                                    <br>
+                                </div>
+                                <div class="col text-center">
+                                    <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                        <div class="wrap">
+                                            <img class="wrap-img" src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX30746471.jpg" alt="">
+                                        </div>
+                                        <h6 style="margin-top: 11%" class="app-title animated jackInTheBox">Class 404: Not Found</h6>
+                                    </div>
+                                    <br>
+                                </div>
+                                <div class="col text-center">
+                                    <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                        <div class="wrap">
+                                            <img class="wrap-img" src="https://media.istockphoto.com/vectors/game-flat-icon-vector-id903190266?k=6&m=903190266&s=612x612&w=0&h=AJzjDw8Uw1PsqB3ZKNumv1-HeOksD7zzdc1zY7Uxf1E=" alt="">
+                                        </div>
+                                        <h6 style="margin-top: 11%" class="app-title animated jackInTheBox">Visual Game Design</h6>
+                                    </div>
+                                    <br>
+                                </div>
+                                <div class="col text-center">
+                                    <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                        <div class="row h-100">
+                                            <div class="col-12" style="margin: auto">
+                                                <i class="material-icons">arrow_forward_ios</i>
+                                                <h5 style="margin: auto">Show All</h5>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="d-flex animated fadeIn">
+                                    <i class="material-icons">build</i>
+                                    <p class="dashboard-text" style="width: 170px">DIY Classes</p>
+                                    <hr class="w-100" style="margin-left: 15px">
+                                </div>
+                                <br>
+                                <div class="row">   
+                                    <div class="col text-center">
+                                        <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                            <div class="wrap">
+                                                <img class="wrap-img" src="https://media.istockphoto.com/vectors/detective-spying-through-newspaper-vector-id903971972?k=6&m=903971972&s=612x612&w=0&h=L_MozgD-rQQXeh4vAiIx3jMLd2414-XqOwmM2C8DsdM=" alt="">
+                                            </div>
+                                            <h6 style="margin-top: 11%" class="app-title animated jackInTheBox">Py Spy</h6>
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <div class="col text-center">
+                                        <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                            <div class="wrap">
+                                                <img class="wrap-img" src="https://static.vecteezy.com/system/resources/previews/000/522/899/non_2x/business-analysis-system-on-computer-laptop-and-graph-screen-web-development-and-coding-vector.jpg" alt="">
+                                            </div>
+                                            <h6 style="margin-top: 11%" class="app-title animated jackInTheBox">Conditionals</h6>
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <div class="col text-center">
+                                        <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                            <div class="wrap">
+                                                <img class="wrap-img" src="https://images-na.ssl-images-amazon.com/images/I/616LHxA3m%2BL._SY355_.png" alt="">
+                                            </div>
+                                            <h6 style="margin-top: 11%" class="app-title animated jackInTheBox">Scratch JR</h6>
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <div class="col text-center">
+                                        <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                            <div class="wrap">
+                                                <img class="wrap-img" src="https://i2.wp.com/myhexaville.com/wp-content/uploads/2017/04/OF16640-e1492151711919.jpg?fit=400%2C246" alt="">
+                                            </div>
+                                            <h6 style="margin-top: 11%" class="app-title animated jackInTheBox">Animatron</h6>
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <div class="col text-center">
+                                        <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                            <div class="row h-100">
+                                                <div class="col-12" style="margin: auto">
+                                                    <i class="material-icons">arrow_forward_ios</i>
+                                                    <h5 style="margin: auto">Show All</h5>
+                                                </div>
+                                            </div> 
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                            
+                            <div class="row" id="special-row">
+                                <div class="col-3">
+                                    <br><br>
+                                    <h3 class="text-white">Highlights</h3>
+                                    <p class="text-white">Do you have what it takes to complete this projects? With Idealab DIY's we make sure you do all steps along the way</p>
+                                    <button class="btn btn-primary">Get more info</button>
+                                </div>
+                                <div class="col-9">
+                                    <br><br>
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <div class="custom-card class-card card-special animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                                <div class="wrap">
+                                                    <img class="wrap-img" src="https://synthetik.com/wp-content/uploads/2016/07/Vectorpaint4.jpg" alt="">
+                                                </div>
+                                                <h6 style="margin-top: 11%" class="app-title title-special animated jackInTheBox">Does It Match: Color Theory</h6>
+                                            </div>
+                                            <br>
+                                        </div>
+                                        <div class="col text-center">
+                                            <div class="custom-card class-card card-special animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                                <div class="wrap">
+                                                    <img class="wrap-img" src="https://www.creativefabrica.com/wp-content/uploads/2019/03/Gears-vector-in-colorful-style-by-hartgraphic-1.jpg" alt="">
+                                                </div>
+                                                <h6 style="margin-top: 11%" class="app-title title-special animated jackInTheBox">Build It Sr Civil Engineering</h6>
+                                            </div>
+                                            <br>
+                                        </div>
+                                        <div class="col text-center">
+                                            <div class="custom-card class-card card-special animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                                <div class="wrap">
+                                                    <img class="wrap-img" src="https://img.freepik.com/free-vector/background-about-physics_1284-698.jpg?size=338&ext=jpg" alt="">
+                                                </div>
+                                                <h6 style="margin-top: 11%" class="app-title title-special animated jackInTheBox">Physics in Motion Jr F.</h6>
+                                            </div>
+                                            <br>
+                                        </div>
+                                        <!-- <div class="col text-center">
+                                            <div class="custom-card class-card card-special animated jackInTheBox nav-item" data-toggle="modal" href="#modal-cog-purchase">
+                                                <div class="wrap">
+                                                    <img class="wrap-img" src="https://firebasestorage.googleapis.com/v0/b/new-steamhub.appspot.com/o/module%2F1565368255834-3DP%20toy%20engineering.jpg?alt=media&token=502eb098-2ed9-4928-9c30-657cd24e2288" alt="">
+                                                </div>
+                                                <h6 style="margin-top: 11%" class="app-title title-special animated jackInTheBox">3D Printing: Toy Engineering</h6>
+                                            </div>
+                                            <br>
+                                        </div> -->
+                                        <div class="col text-center">
+                                            <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                                <div class="row h-100">
+                                                    <div class="col-12" style="margin: auto">
+                                                        <i class="material-icons">arrow_forward_ios</i>
+                                                        <h5 style="margin: auto">Show All</h5>
+                                                    </div>
+                                                </div> 
+                                            </div>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br>
+                            <div class="d-flex animated fadeIn">
+                                    <i class="material-icons">whatshot</i>
+                                    <p class="dashboard-text" style="width: 170px">Trending</p>
+                                    <hr class="w-100" style="margin-left: 15px">
+                                </div>
+                                <br>
+                                <div class="row">   
+                                    <div class="col text-center">
+                                        <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                            <div class="wrap">
+                                                <img class="wrap-img" src="https://firebasestorage.googleapis.com/v0/b/new-steamhub.appspot.com/o/module%2F1565368255834-3DP%20toy%20engineering.jpg?alt=media&token=502eb098-2ed9-4928-9c30-657cd24e2288" alt="">
+                                            </div>
+                                            <h6 style="margin-top: 11%" class="app-title animated jackInTheBox">3D Printing: Toy Engineering</h6>
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <div class="col text-center">
+                                        <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                            <div class="wrap">
+                                                <img class="wrap-img" src="https://firebasestorage.googleapis.com/v0/b/new-steamhub.appspot.com/o/module%2F1565368255834-3DP%20toy%20engineering.jpg?alt=media&token=502eb098-2ed9-4928-9c30-657cd24e2288" alt="">
+                                            </div>
+                                            <h6 style="margin-top: 11%" class="app-title animated jackInTheBox">3D Printing: Toy Engineering</h6>
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <div class="col text-center">
+                                        <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                            <div class="wrap">
+                                                <img class="wrap-img" src="https://firebasestorage.googleapis.com/v0/b/new-steamhub.appspot.com/o/module%2F1565368255834-3DP%20toy%20engineering.jpg?alt=media&token=502eb098-2ed9-4928-9c30-657cd24e2288" alt="">
+                                            </div>
+                                            <h6 style="margin-top: 11%" class="app-title animated jackInTheBox">3D Printing: Toy Engineering</h6>
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <div class="col text-center">
+                                        <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                            <div class="wrap">
+                                                <img class="wrap-img" src="https://firebasestorage.googleapis.com/v0/b/new-steamhub.appspot.com/o/module%2F1565368255834-3DP%20toy%20engineering.jpg?alt=media&token=502eb098-2ed9-4928-9c30-657cd24e2288" alt="">
+                                            </div>
+                                            <h6 style="margin-top: 11%" class="app-title animated jackInTheBox">3D Printing: Toy Engineering</h6>
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <div class="col text-center">
+                                        <div class="custom-card class-card animated jackInTheBox nav-item-3" data-toggle="modal" href="#modal-cog-purchase">
+                                            <div class="wrap">
+                                                <img class="wrap-img" src="https://firebasestorage.googleapis.com/v0/b/new-steamhub.appspot.com/o/module%2F1565368255834-3DP%20toy%20engineering.jpg?alt=media&token=502eb098-2ed9-4928-9c30-657cd24e2288" alt="">
+                                            </div>
+                                            <h6 style="margin-top: 11%" class="app-title animated jackInTheBox">3D Printing: Toy Engineering</h6>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                            <div style="padding-top: 150px"></div>
+                        </div>
+                    </div>
+                        
+                </div>
+
+                <div class="tab-pane fade h-100" id="live-class">
+                    <iframe width="100%" height="100%" src="https://irasuna.github.io/live-class/teacher-course.html" frameborder="0" allow="camera;microphone"></iframe>
+                </div>
+
+                <div class="tab-pane fade h-100" id="checkout">
+                    <br><br><br>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h5>My Cart</h5>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-3"><img width="150px" src="https://media.istockphoto.com/vectors/game-flat-icon-vector-id903190266?k=6&m=903190266&s=612x612&w=0&h=AJzjDw8Uw1PsqB3ZKNumv1-HeOksD7zzdc1zY7Uxf1E=" alt=""></div>
+                                                    <div class="col-9">
+                                                        <h5>$ 109</h5>
+                                                        <h6>Visual Game Design</h6>
+                                                        <button class="btn btn-danger">Remove</button>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-3"><img width="150px" src="https://firebasestorage.googleapis.com/v0/b/new-steamhub.appspot.com/o/cog%2F1565889155163-img006.jpg?alt=media&token=7e28baaa-a517-4489-baba-ff5e37a673f9" alt=""></div>
+                                                    <div class="col-9">
+                                                        <h5>$ 109</h5>
+                                                        <h6>Medical Science</h6>
+                                                        <button class="btn btn-danger">Remove</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5>Recommended based on your purchases</h5>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col">
+                                                <img width="150px" src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX30746471.jpg" alt="">
+                                                <h6 style="width:150px;padding-top:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Class 404: Not Found</h6>
+                                            </div>
+                                            <div class="col text-center">
+                                                <img width="150px" src="https://st2.depositphotos.com/3474805/7901/v/450/depositphotos_79017604-stock-illustration-cool-concept-of-3d-printing.jpg" alt="">
+                                                <h6 style="width:150px;padding-top:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">3D Printing & Engineering</h6>
+                                            </div>
+                                            <div class="col text-center">
+                                                <img width="150px" src="https://firebasestorage.googleapis.com/v0/b/new-steamhub.appspot.com/o/module%2F1565368255834-3DP%20toy%20engineering.jpg?alt=media&token=502eb098-2ed9-4928-9c30-657cd24e2288" alt="">
+                                                <h6 style="width:150px;padding-top:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">3D Printing Toy Engineering</h6>
+                                            </div>
+                                            <div class="col text-center">
+                                                <img width="150px" src="https://firebasestorage.googleapis.com/v0/b/new-steamhub.appspot.com/o/module%2F1565368255834-3DP%20toy%20engineering.jpg?alt=media&token=502eb098-2ed9-4928-9c30-657cd24e2288" alt="">
+                                                <h6 style="width:150px;padding-top:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">3D Printing Toy Engineering</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5>Summary</h5>
+                                        <br>
+                                        <p>The total cost consist of tax insurance charges.</p>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-6"><h5>Gross Amount</h5></div>
+                                            <div class="col-6"><h5>$ 218</h5></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6"><h5>Net Amount</h5></div>
+                                            <div class="col-6"><h5>$ 218</h5></div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-6" style="color: #28a745;text-decoration:underline"><h5>Have a discount code?</h5></div>
+                                            <div class="col-6"><h5>$ 218</h5></div>
+                                        </div>
+                                        <br>
+                                        <button class="btn btn-success w-100">Checkout</button>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                            
+                </div>
+
+                <div class="tab-pane fade h-100" id="reports"></div>
+
+                <div class="tab-pane fade h-100" id="modules">
+                    <br>
+                    <div class="d-flex flex-row flex-wrap">
+                        <div class="p-2 custom-filter-container text-center" style="margin-top: auto;margin-bottom:auto">Select Module</div>
+                        <div class="p-2 custom-filter-container">
+                            <select class="custom-select" id="module-number"></select>
+                        </div>
+
+                        <div data-toggle="modal" href="#modal-cog" id="cogoverview" class="p-2 custom-filter-container text-center" style="margin-top: auto;margin-bottom:auto">Snapshot</div>
+                    </div>
+
+                    <div class="row animated slideInUp faster custom-class-container">
+                        <div class="container-fluid">
+                            <div class="row">   
+                                <div class="col tab-menu active active-tab-menu text-center" data-toggle="tab" href="#overview" style="border-top-left-radius: 25px">Overview</div>
+                                <div class="col tab-menu text-center" data-toggle="tab" href="#explore">Explore</div>
+                                <div class="col tab-menu text-center" data-toggle="tab" href="#explain">Explain</div>
+                                <div class="col tab-menu text-center" data-toggle="tab" href="#elaborate">Elaborate</div>
+                                <div class="col tab-menu text-center" data-toggle="tab" href="#evaluate" style="border-top-right-radius: 25px">Evaluate</div>
+                            </div>
+                            <br>
+                            <div class="container"  style="overflow-y: auto;height: 100vh">
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="overview">
+                                        <div class="row">
+                                            <div class="col-xl-4 col-12"><img id="module-image" class="w-100 h-100" src="" alt=""></div>
+                                            <div class="col-xl-8 col-12">
+                                                <div class="whitesmoke-container">
+                                                    <h5 id="module-title"></h5>
+                                                    <p id="overview-text"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <div class="d-flex tocollapse" data-toggle="collapse" href="#collapse-standards">
+                                            <i class="material-icons icons-margin c-color icons-collapse">add</i>
+                                            <h5>Standards</h5>
+                                            <hr class="w-100" style="margin-left: 15px">     
+                                        </div>
+                                        <div class="row collapse" id="collapse-standards"></div>
+                                        <br>
+                                        <div class="d-flex tocollapse" data-toggle="collapse" href="#append-vocab">
+                                            <i class="material-icons icons-margin c-color icons-collapse">add</i>
+                                            <h5>Vocabulary</h5>
+                                            <hr class="w-100" style="margin-left: 15px">     
+                                        </div>
+                                        <div class="row collapse whitesmoke-container" id="append-vocab"></div>
+
+                                        <br>
+                                        <div class="d-flex tocollapse" data-toggle="collapse" href="#collapse-student">
+                                            <i class="material-icons icons-margin c-color icons-collapse">add</i>
+                                            <h5 style="width: 225px;">Student Materials</h5>
+                                            <hr class="w-100" style="margin-left: 15px">     
+                                        </div>
+                                        <div class="w-100 collapse" id="collapse-student">
+                                            <div class="row table-head">
+                                                <div class="col text-center">Item</div>
+                                                <div class="col text-center">Amount</div>
+                                                <div class="col text-center">Notes</div>
+                                            </div>
+                                            <div class="row" id="append-material-student"></div>
+                                        </div>
+                                        <br>
+                                        <div class="d-flex tocollapse" data-toggle="collapse" href="#collapse-teacher">
+                                            <i class="material-icons icons-margin c-color icons-collapse">add</i>
+                                            <h5 style="width: 225px;">Teacher Materials</h5>
+                                            <hr class="w-100" style="margin-left: 15px">     
+                                        </div>
+                                        <div class="w-100 collapse" id="collapse-teacher">
+                                            <div class="row table-head">
+                                                <div class="col text-center">Item</div>
+                                                <div class="col text-center">Amount</div>
+                                                <div class="col text-center">Notes</div>
+                                            </div>
+                                            <div class="row" id="append-material-teacher"></div>
+                                        </div>
+                                        <br>
+                                        <div class="d-flex tocollapse" data-toggle="collapse" href="#collapse-group">
+                                            <i class="material-icons icons-margin c-color icons-collapse">add</i>
+                                            <h5 style="width: 225px;">Group Materials</h5>
+                                            <hr class="w-100" style="margin-left: 15px">     
+                                        </div>
+                                        <div class="w-100 collapse" id="collapse-group">
+                                            <div class="row table-head">
+                                                <div class="col text-center">Item</div>
+                                                <div class="col text-center">Amount</div>
+                                                <div class="col text-center">Notes</div>
+                                            </div>
+                                            <div class="row" id="append-material-group"></div>
+                                        </div>
+                                        <div style="padding-top: 350px"></div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="explore">
+                                        <div class="container">
+                                            <br>
+                                            <div class="w-100" id="append-steps"></div>
+                                        </div>
+                                        <div style="padding-top:150px"></div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="explain">
+                                        <div class="container">
+                                            <div class="w-100" id="append-explain"></div>
+                                        </div>
+                                        <div style="padding-top:150px"></div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="elaborate">
+                                        <div class="container">
+                                            <div class="w-100" id="append-elaborate"></div>
+                                        </div>
+                                        <div style="padding-top:150px"></div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="evaluate">
+                                        <div class="container">
+                                            <br>
+                                            <div class="w-100" id="append-evaluate"></div>
+                                            
+                                            <button class="btn btn-danger w-100 text-white text-center" id="session-complete">Session Complete</button>
+                                        </div>
+                                        <div style="padding-top:150px"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <!-- Modal media-->
+    <div class="modal fade" id="modal-media" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content custom-modal">
+                <div class="modal-header" style="border-bottom: none">
+                    <!-- <h5 class="modal-title text-center" >Media</h5> -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute;right: 30px;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img width="100%" height="100%" id="display-media-image" src="" alt="">
+                    <iframe width="100%" height="650px" id="display-media-video" src="" frameborder="0" allowfullscreen></iframe>
+                    <h5 class="custom-textarea text-center" id="display-media-text"></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal create group student-->
+    <div class="modal fade" id="modal-create-group" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content custom-modal">
+                <div class="modal-header" style="border-bottom: none">
+                    <h5 class="modal-title text-center" >Create session</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute;right: 30px;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="group-body">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Session Name</span>
+                        </div>
+                        <input id="groupname-val" type="text" class="form-control" placeholder="Type the group name" aria-label="Group name">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Student Name</span>
+                        </div>
+                        <input type="text" class="form-control student-val" placeholder="Add a student to the group (First and Last name)" aria-label="student name">
+                        <i class="add-student material-icons">add</i>
+                    </div>
+                </div>
+                <br>
+                <button class="btn btn-primary" id="create-group-btn">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal delete group student-->
+    <div class="modal fade" id="modal-delete-group" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content custom-modal">
+                <div class="modal-header" style="border-bottom: none">
+                    <h5 class="modal-title text-center" >Delete session</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute;right: 30px;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="group-body">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Session Name</span>
+                        </div>
+                        <select class="custom-select session-delete"></select>
+                    </div>
+                </div>
+                <br>
+                <button class="btn btn-danger" id="delete-group-btn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pin -->
+    <div class="modal fade" id="modal-pin" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content custom-modal">
+                <div class="modal-header" style="border-bottom: none">
+                    <h5 class="modal-title text-center" >Select Pin</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute;right: 30px;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="group-body">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Classes</span>
+                        </div>
+                        <select class="custom-select pin"></select>
+                    </div>
+                </div>
+                <br>
+                <button class="btn btn-primary" id="pin-btn" data-dismiss="modal">Pin</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal options -->
+    <div class="modal fade" id="modal-options" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content custom-modal">
+                <div class="modal-header" style="border-bottom: none">
+                    <h5 class="modal-title text-center" >Settings</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute;right: 30px;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="group-body">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+                        </div>
+                        <input type="text" class="form-control" id="name-input" placeholder="Enter your new name.">
+                    </div>
+                    <br>
+                    <button class="btn btn-primary w-100" id="change-name" data-dismiss="modal">Update</button>
+                </div>
+                
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal redeem -->
+    <div class="modal fade" id="modal-redeem" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content custom-modal">
+                <div class="modal-header" style="border-bottom: none">
+                    <h5 class="modal-title text-center" >Redeem Class</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute;right: 30px;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="group-body">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Code</span>
+                        </div>
+                        <input type="text" class="form-control" id="redeem-input" placeholder="Enter your code to redeem.">
+                    </div>
+                    <br>
+                    <button class="btn btn-primary w-100" id="redeem-code" data-dismiss="modal">Redeem</button>
+                </div>
+                
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal branch -->
+    <div class="modal fade" id="modal-branch" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content custom-modal">
+                <div class="modal-header" style="border-bottom: none">
+                    <h5 class="modal-title text-center" >Choose Branch</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute;right: 30px;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="group-body">
+                    <select class="w-100 custom-select" id="setbranch-opt">
+                        <option value="none">Select Branch...</option>
+                        <option value="Aliana">Aliana</option>
+                        <option value="Bakersfield">Bakersfield</option>
+                        <option value="Central Houston">Central Houston</option>
+                        <option value="Cumbaya Ecuador">Cumbaya Ecuador</option>
+                        <option value="Cypress">Cypress</option>
+                        <option value="East Oakville">East Oakville</option>
+                        <option value="Energy Corridor">Energy Corridor</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="HoCo">HoCo</option>
+                        <option value="Katy">Katy</option>
+                        <option value="Knoxville">Knoxville</option>
+                        <option value="Lebanon">Lebanon</option>
+                        <option value="North Tampa">North Tampa</option>
+                        <option value="Spring Branch">Spring Branch</option>
+                        <option value="Sugar Land North">Sugar Land North</option>
+                        <option value="Toronto">Toronto</option>
+                        <option value="Wayne">Wayne</option>
+                    </select>
+                    <br><br>
+                    <button class="btn btn-primary w-100" id="setbranch-btn" data-dismiss="modal">Set</button>
+                </div>
+                
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal ppic -->
+    <div class="modal fade" id="modal-ppic" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content custom-modal">
+                <div class="modal-header" style="border-bottom: none">
+                    <h5 class="modal-title text-center" >Upload</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute;right: 30px;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="group-body">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="attach">Attachement</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Paste an image link here." id="attach-val">
+                    </div>
+                    <br>
+                    <h4 class="text-center">Or</h4>
+                    <br>
+                    <input type="file" id="filePicker" name="filePicker" accept="image/png, image/jpeg">
+                    <br>
+                    <br>
+                    
+                    <button class="btn btn-primary w-100" id="request-btn">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Modal cog-->
+    <div class="modal fade" id="modal-cog" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg " role="document">
+            <div class="modal-content custom-modal" style="min-height: 595px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <br>
+                <div class="modal-body">
+
+                    <div id="mycarousel" class="carousel slide" data-ride="carousel" data-interval= "false">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="col-xl-6 col-md-12"><img width="100%" height="100%" id="display-cog-image" src="" alt=""></div>
+                                    <div class="col-xl-6 col-md-12">
+                                        <div class="w-100 h-100 highlight">
+                                            <p class="display-cog-text" id="display-cog-title"></p>
+                                            <p class="display-cog-text" id="display-cog-type"></p>
+                                            <p class="display-cog-text" id="display-cog-grade"></p>
+                                            <p class="display-cog-text" id="display-cog-subject"></p>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="highlight">
+                                    <div class="d-flex tocollapse" data-toggle="collapse" href="#display-cog-descr">
+                                        <i class="material-icons icons-margin">add</i>
+                                        <h5>Description</h5>
+                                    </div>
+                                    <p class="collapse" id="display-cog-descr"></p>
+                                </div>
+                    
+                                <div class="highlight">
+                                    <div class="d-flex tocollapse" data-toggle="collapse" href="#display-skill-text">
+                                        <i class="material-icons icons-margin">add</i>
+                                        <h5>Skills Learned</h5>
+                                    </div>
+                                    <ul class="collapse" id="display-skill-text"></ul>
+                                </div>
+            
+                                <div class="highlight">
+                                    <div class="d-flex tocollapse" data-toggle="collapse" href="#display-connection-text">
+                                        <i class="material-icons icons-margin">add</i>
+                                        <h5>Real World Connection</h5>
+                                    </div>
+                                    <ul class="collapse" id="display-connection-text"></ul>
+                                </div>
+                            </div>
+                            <div class="carousel-item w-100 h-100">
+                                <h5 class="text-center">Table Of Content</h5>
+                                <br>
+                                <div id="modules-extra-info"></div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    <i id="back-btn" class="material-icons carousel-control-prev"  href="#mycarousel" data-slide="prev">keyboard_arrow_left</i>
+                    <i id="next-btn" class="material-icons carousel-control-next"  href="#mycarousel" data-slide="next">keyboard_arrow_right</i>
+                    <br><br>
+                    <div class="highlight">
+                        <h5 class="text-center">Assign class to</h5>
+                        <select class="custom-select" id="maselect">
+                            <option value="1">John Olive</option>
+                            <option value="1">Vera Olive</option>
+                            <option value="1">Yanni Olive</option>
+                        </select>
+                        <br><br>
+                        <button class="w-100 btn btn-primary" id="assign-cl">Assign</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal cog buy-->
+    <div class="modal fade" id="modal-cog-purchase" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg " role="document">
+                <div class="modal-content custom-modal" style="min-height: 595px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <br>
+                    <div class="modal-body">
+    
+                        <div id="mycarousel" class="carousel slide" data-ride="carousel" data-interval= "false">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-xl-6 col-md-12"><img width="100%" height="100%" id="display-cog-image" src="https://firebasestorage.googleapis.com/v0/b/new-steamhub.appspot.com/o/module%2F1565368255834-3DP%20toy%20engineering.jpg?alt=media&token=502eb098-2ed9-4928-9c30-657cd24e2288" alt=""></div>
+                                        <div class="col-xl-6 col-md-12">
+                                            <div class="w-100 h-100 highlight">
+                                                <p class="display-cog-text" id="display-cog-title"><b>Name : </b>3D Printing Toy Engineering</p>
+                                                <p class="display-cog-text" id="display-cog-type"><b>Type : </b>STEM Academy</p>
+                                                <p class="display-cog-text" id="display-cog-grade"><b>Grade : </b>Third</p>
+                                                <p class="display-cog-text" id="display-cog-subject"><b>Subject : </b>3D Printing</p>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="highlight">
+                                        <div class="d-flex tocollapse" data-toggle="collapse" href="#display-cog-descr">
+                                            <i class="material-icons icons-margin">add</i>
+                                            <h5>Description</h5>
+                                        </div>
+                                        <p class="collapse" id="display-cog-descr">
+                                            In this class students will apply their 3D designing and printing skill to create different kinds of toys that they can play with. Students will understand the use of 3D space and 3D modeling to create things that are functional in everyday life! By creating toys they can play with, students get a glimpse of the real world connections between 3D Modeling and printing and it’s functionality.
+                                        </p>
+                                    </div>
+                        
+                                    <div class="highlight">
+                                        <div class="d-flex tocollapse" data-toggle="collapse" href="#display-skill-text">
+                                            <i class="material-icons icons-margin">add</i>
+                                            <h5>Skills Learned</h5>
+                                        </div>
+                                        <ul class="collapse" id="display-skill-text">
+                                            <li>3D Printing</li>
+                                            <li>CAD Design</li>
+                                            <li>3D workplanes</li>
+                                            <li>Object manipulation</li>
+                                            <li>3D Modeling</li>
+                                        </ul>
+                                    </div>
+                
+                                    <div class="highlight">
+                                        <div class="d-flex tocollapse" data-toggle="collapse" href="#display-connection-text">
+                                            <i class="material-icons icons-margin">add</i>
+                                            <h5>Real World Connection</h5>
+                                        </div>
+                                        <ul class="collapse" id="display-connection-text"></ul>
+                                    </div>
+                                </div>
+                                <div class="carousel-item w-100 h-100">
+                                    <h5 class="text-center">Table Of Content</h5>
+                                    <br>
+                                    <div id="modules-extra-info"></div>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        <i id="back-btn" class="material-icons carousel-control-prev"  href="#mycarousel" data-slide="prev">keyboard_arrow_left</i>
+                        <i id="next-btn" class="material-icons carousel-control-next"  href="#mycarousel" data-slide="next">keyboard_arrow_right</i>
+                        <br><br>
+                        <div class="row">
+                            <div class="col-6">
+                                <button class="btn w-100 btn-warning text-white" data-toggle="tab" href="#live-cl" data-dismiss="modal">Preview</button>
+                            </div>
+                            <div class="col-6">
+                                <button  class="btn w-100 btn-primary" id="addtocart">Add To Cart <i id="buycart" class="material-icons" style="position: absolute;margin-left: 20px;transition: 0.5s">add_shopping_cart</i></button>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+    <style>
+        #special-row{
+            background-image: url(https://www.gentoo.org/assets/img/wallpaper/gentoo-cow/gentoo-cow-gdm-remake-1280x1024.png);
+            padding: 15px;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .card-special,.title-special{
+            width: 175px !important
+        }
+        
+    </style>
+
+    <script>
+        $(".nav-item-3").click(function(){
+            $(".nav-item-3").removeClass("active");
+            $(".module-card").removeClass("active");
+            
+            // setTimeout(() => {
+            //     $("#class-status-select").css("left",$("#active-class").position().left);
+            //     $("#class-status-select").css("width",$("#active-class").width());
+            //     $("#class-status-select").css("visibility","visible");
+            // }, 600);
+        })
+        $("#assign-cl").click(function(){
+            alert("Class assigned to " + $("#maselect option:selected").text())
+        })
+        var dtx = document.getElementById('myChart2').getContext('2d');
+        var myDoughnutChart = new Chart(dtx, {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    label: 'Attendance',
+                    data: [30, 4, 5],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        
+                        
+                        
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        
+                        
+                    ],
+                }],
+                labels: [
+                    'Attended',
+                    'Leave',
+                    'Missed',
+                    
+                    
+                ]
+            },
+            
+        });
+        
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Assesment Progress',
+                    data: [12, 19, 3, 5, 2, 3,18,13],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+        var r = 0;
+        $(".clickme").click(function(){
+            r++
+            if(r==0){
+                $("#switchname").text("John Olive")
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                        datasets: [{
+                            label: 'Assesment Progress',
+                            data: [12, 19, 3, 5, 2, 3,18,13],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            }
+            else if(r==1){
+                $("#switchname").text("Vera Olive")
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                        datasets: [{
+                            label: 'Assesment Progress',
+                            data: [1, 20, 20, 5, 18, 13,18,13],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            }
+            else if(r==2){
+                $("#switchname").text("Yanni Olive")
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                        datasets: [{
+                            label: 'Assesment Progress',
+                            data: [17, 6, 9, 15, 8, 11,8,18],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            }
+            else{
+                r = 0;
+                $("#switchname").text("John Olive")
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                        datasets: [{
+                            label: 'Assesment Progress',
+                            data: [12, 19, 3, 5, 2, 3,18,13],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            }
+            
+        })
+    </script>
+
+    <script src="/__/firebase/6.6.0/firebase-app.js"></script>
+    <script src="/__/firebase/6.6.0/firebase-auth.js"></script>
+    <script src="/__/firebase/6.6.0/firebase-firestore.js"></script>
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="assets/js/firebase.js"></script>
+    <script src="assets/js/script.js"></script>
+    
+</body>
+</html>
