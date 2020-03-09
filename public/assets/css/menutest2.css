@@ -1,0 +1,251 @@
+
+#profile{
+  position: absolute;
+  width: 100%;
+  bottom: 45px;
+}
+
+.icons-special{
+  color: black;
+}
+.material-icons:hover{
+  cursor: default;
+}
+#menu-bar{
+  width: 100%;
+  height: 100vh;
+  background: rgba(20, 137, 204, 0.9);  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2B32B2, rgba(20, 137, 204, 0.901));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2B32B2, rgba(5, 143, 223, 0.801)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+.featured{
+  width: 100%;
+  height: 400px;
+}
+
+.navText{
+  text-align: center;
+  margin-bottom: 4px;
+  color: #5e5e5e;
+}
+.navText:hover{
+  color: black;
+  cursor: default;
+}
+
+.non-active{
+  height: 0px;
+  width: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+p{
+  cursor: default;
+}
+.card-custom{
+  background-color: #fafafa;
+  width: 100%;
+}
+.card-custom:hover{
+  background-color: #ffffff;
+}
+hr{
+  height: 0px;
+  width: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background-color: rgba(0, 0,0,0);
+}
+.nav{
+  position: fixed;
+}
+.card-category{
+  width: 100%;
+  height: 80px;
+}
+.menuCAT{
+  /* margin: auto; */
+  padding-top: 5px;
+  
+}
+.menuCAT:hover{
+  border-bottom: solid 3px rgba(20, 137, 204, 0.9);
+  cursor: pointer;
+  /* color: white; */
+  /* margin-top:0px;
+  margin-bottom:0px */
+
+}
+
+
+a  {
+  color: black;
+}
+
+
+a:link {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a:focus {
+  color: black;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+a:active {
+  color: black;
+}
+.user-style{
+  height: 2px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  background-color: rgb(170, 33, 28);
+  position: relative;
+  left: 30px;
+}
+.username{
+  margin-bottom: 4px;
+  text-align: center;
+  color: #5e5e5e;
+  
+}
+.username:hover{
+  color: black;
+  cursor: default
+}
+
+.card-conform{
+  height: 180px;
+}
+#dashboard_avatar{
+  background-color: gray;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+}
+.avatars{
+  width: 100%;
+  height: 280px;
+}
+
+.blurred-box{
+  background: inherit;
+  overflow: hidden;
+}
+
+.blurred-box:after{
+  content: '';
+  background: inherit; 
+  box-shadow: inset 0 0 0 200px rgba(255,255,255,0.05);
+  filter: blur(10px);
+ }
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.932); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+.card-img{
+  height: 250px;
+}
+.wrap{
+  overflow: hidden;
+  position: relative;
+}
+.wrap img{
+  max-width: 100%;
+  transition: all 0.3s
+}
+.wrap:hover{
+  background-color: black;
+}
+.wrap:hover img{
+  /* border: 5px solid black; */
+  opacity: 0.8;
+  transform: scale(1.1)
+}
+.menuSpecial{
+ background-color: white;
+}
+#sidebarWrap{
+  background: #0F2027;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.catActive{
+  border-bottom: solid 3px rgba(20, 137, 204, 0.9);
+}
+.menuP{
+  padding-left:10px;
+  color:white;
+}
+
+@keyframes reduce {
+  0%   {flex:0 0 16.666667%; max-width:16.666667%;}
+  100% {flex:0 0 5%; max-width:5%;}
+}
+@keyframes expand {
+  0%   {flex:0 0 5%; max-width:5%;}
+  100% {flex:0 0 16.666667%; max-width:16.666667%;}
+}
+@keyframes rotate {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(359deg);}
+}
+.menu-bar-reduce{
+  animation-name: reduce;
+  animation-duration: 0.1s;
+}
+.menu-bar-expand{
+  animation-name: expand;
+  animation-duration: 0.1s;
+}
+.menu-load {
+  animation-name: rotate;
+  animation-duration: 0.5s;
+}
+.menu-load-2 {
+  animation-name: rotate;
+  animation-duration: 0.5s;
+}
+
+
+@media screen and (max-width: 1024px){
+  .material-icons{
+    position: absolute;
+    left: 10px;
+  }
+  
+  .menuP{
+    padding-left:30px;
+    color:white;
+  }
+
+}

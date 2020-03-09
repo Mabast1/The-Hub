@@ -1,0 +1,219 @@
+body,html{
+    background-color: whitesmoke;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#title{
+    color: #1f94d2;;
+    font-weight: bolder;
+}
+.iconBack {
+    fill: 	#1f94d2;;
+}
+.card-menu{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 0%
+}
+.iconBorder {
+    stroke: #aaa;
+    stroke-width: 5;
+    fill: rgba(0, 0, 0, 0.1);
+}
+.card-round-active{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    border-radius: 50%;
+    height: 240px;
+    width: 240px;
+    margin: auto
+}
+.card-round{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.295);
+    color: black;
+    border-radius: 50%;
+    height: 240px;
+    width: 240px;
+    margin: auto
+}
+.card:hover{
+    cursor: point\er;
+}
+/* er;
+    transform: scale(1.1);
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    z-index: 1;
+} */
+.pDown{
+    margin: auto;
+    position: absolute;
+    top: 100px;
+    right: -29px;
+}
+.pUp{
+    margin: auto;
+    position: absolute;
+    top: -140px;
+    right: -28px;
+}
+
+
+#path{
+    stroke: #ccc;
+    stroke-width: 1;
+    stroke-linecap: round;
+    fill: none;
+    stroke-dasharray: 180;
+    stroke-dashoffset: 180;
+    animation: dash .7s linear forwards;
+}
+@keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+.cTitle{
+    margin: auto
+}
+.cm:hover, .special:hover{
+    cursor: pointer;
+    transform: scale(1.04);
+}
+.special{
+    height: 100px;
+}
+.separator{
+    border-right: 1px solid white;
+}
+a{
+    color: white;
+}
+a:hover{
+    color: whitesmoke;
+}
+.selected{
+    background-color: rgba(0, 0, 0, 0.4);
+    
+ 
+}
+.select:hover{
+    background-color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+#content{
+    border-top: 1px solid whitesmoke
+}
+.centered{
+    display: inline-block;
+    margin: auto
+}
+.c-icon{
+    font-size: 48px;
+
+}
+.icon {
+    animation: pop .5s cubic-bezier(.5,.5,.5,1.5) forwards;
+    visibility: hidden;
+  }
+  
+  .icon text {
+    text-anchor: middle;
+    font-size: 18pt;
+  }
+  
+  #icon-puzzle {
+    animation-delay: 0.0s;
+  }
+  
+  #icon-maze {
+    animation-delay: 0.1s;
+  }
+  
+  #icon-bird {
+    animation-delay: 0.2s;
+  }
+  
+  #icon-turtle {
+    animation-delay: 0.3s;
+  }
+  
+  #icon-movie {
+    animation-delay: 0.4s;
+  }
+  
+  #icon-music {
+    animation-delay: 0.5s;
+  }
+  
+  #icon-pond-tutor {
+    animation-delay: 0.6s;
+  }
+  
+  #icon-pond-duck {
+    animation-delay: 0.7s;
+  }
+  
+  #back-puzzle {
+    animation-delay: 0.3s;
+  }
+  
+  #back-maze {
+    animation-delay: 0.4s;
+  }
+  
+  #back-bird {
+    animation-delay: 0.5s;
+  }
+  
+  #back-turtle {
+    animation-delay: 0.6s;
+  }
+  
+  #back-movie {
+    animation-delay: 0.7s;
+  }
+  
+  #back-music {
+    animation-delay: 0.8s;
+  }
+  
+  #back-pond-tutor {
+    animation-delay: 0.9s;
+  }
+  
+  #back-pond-duck {
+    animation-delay: 1.0s;
+  }
+  
+  
+  @keyframes pop {
+    from {
+      transform: translate(80px, 50px) scale(0);
+      visibility: visible;
+    }
+    to {
+      transform: translate(0, 0) scale(1);
+      visibility: visible;
+    }
+  }
+  
+  .gaugeBack {
+    /* stroke: #aaa; */
+    stroke-width: 6;
+    fill: none;
+    animation: pop 0.1s linear forwards;
+    visibility: hidden;
+  }
+  
+  .gaugeFront {
+    stroke: #0b0;
+    stroke-width: 8;
+    fill: none;
+  }
